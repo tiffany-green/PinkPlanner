@@ -807,3 +807,55 @@ aside {
         line-height: 1.3;
     }
 }
+/* =========================================
+   FIRE TV / FULL SCREEN PINKPLANNER
+   Keeps the entire dashboard on one screen
+   ========================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* Fire TV / shorter landscape screens */
+@media screen and (max-height: 800px) and (min-width: 1000px) {
+
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Slightly tighten the top header */
+    header {
+        margin-bottom: 4px;
+    }
+
+    /* Reduce unnecessary vertical gaps */
+    .dashboard,
+    main {
+        margin-top: 4px;
+    }
+
+    /* Keep calendar cells compact enough
+       to fit the full month */
+    .day-box {
+        min-height: 0 !important;
+    }
+
+    /* Keep Lala contained in the sidebar */
+    .lala-card {
+        overflow: hidden;
+    }
+
+    .lala-card img {
+        max-height: 145px;
+        width: auto;
+        object-fit: contain;
+    }
+}
