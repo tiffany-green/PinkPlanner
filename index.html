@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkPlanner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="dashboard">
+
+    <header class="topbar">
+
+        <div class="brand-block">
+            <div class="brand-name">PinkPlanner</div>
+            <div class="brand-subtitle">by Tiffany ♥</div>
+        </div>
+
+        <div class="date-block">
+            <h1>Friday, August 7</h1>
+            <p>2026</p>
+        </div>
+
+        <div class="weather">
+            ☀️ 74°
+        </div>
+
+    </header>
+
+    <div class="google-bar">
+    <span id="google-status">
+        Loading Google Calendar... 🌸
+    </span>
+</div>
+
+    <main>
+
+        <section class="calendar-card">
+
+            <div class="calendar-title-row">
+                <span class="month-arrow">‹</span>
+                <h2>August 2026</h2>
+                <span class="month-arrow">›</span>
+            </div>
+
+            <div class="weekdays">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+            </div>
+
+            <div class="calendar"></div>
+
+        </section>
+
+        <aside>
+
+            <div class="panel today-panel">
+                <h3>Today</h3>
+                <div class="today-date">Friday, August 7, 2026</div>
+            </div>
+
+            <div class="panel">
+                <h3>Upcoming Events</h3>
+            </div>
+
+            <div class="panel legend-panel">
+                <h3>Calendar Legend</h3>
+
+                <div class="legend-item">
+                    <span>🎂 Birthdays</span>
+                    <span class="legend-dot birthday-dot"></span>
+                </div>
+
+                <div class="legend-item">
+                    <span>🌸 Events</span>
+                    <span class="legend-dot event-dot"></span>
+                </div>
+
+                <div class="legend-item">
+                    <span>🌿 PTO / Out of Office</span>
+                    <span class="legend-dot pto-dot"></span>
+                </div>
+
+                <div class="legend-item">
+                    <span>⭐ Trade Shows</span>
+                    <span class="legend-dot tradeshow-dot"></span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Year Overview</h3>
+
+                <div class="months">
+                    <span>JAN</span>
+                    <span>FEB</span>
+                    <span>MAR</span>
+                    <span>APR</span>
+
+                    <span>MAY</span>
+                    <span>JUN</span>
+                    <span>JUL</span>
+                    <span class="active-month">AUG</span>
+
+                    <span>SEP</span>
+                    <span>OCT</span>
+                    <span>NOV</span>
+                    <span>DEC</span>
+                </div>
+            </div>
+
+ <div class="panel lala-panel">
+
+    <img
+        id="lala-image"
+        src="assets/lala/lala-monday.png"
+        alt="Lala, PinkPlanner's office pup"
+        class="lala-image"
+    >
+
+    <div class="lala-text">
+        <div class="lala-name">Lala</div>
+        <div id="lala-message" class="lala-note">
+            Have a pawsitive day!
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/script.js"></script>
+<script src="js/lala.js"></script>
+
+</body>
+</html>
