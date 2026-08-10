@@ -1264,3 +1264,40 @@ html.silk-tv .lala-note {
     width: 100%;
     text-align: center !important;
 }
+/* =========================================
+   FIRE TV - FILL MORE OF THE SCREEN HEIGHT
+   ========================================= */
+
+@media screen and (max-height: 800px) and (min-width: 1000px) {
+
+    /* Give the dashboard more of the TV height */
+    .dashboard {
+        height: calc(100vh - 105px) !important;
+        min-height: 0 !important;
+        align-items: stretch !important;
+    }
+
+    /* Stretch the main calendar */
+    .calendar-card {
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    /* Make the calendar grid consume the extra height */
+    .calendar-grid {
+        height: calc(100% - 70px) !important;
+        grid-template-rows: auto repeat(6, 1fr) !important;
+    }
+
+    /* Let each date box grow vertically */
+    .day-box {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Stretch the sidebar to match */
+    .sidebar {
+        height: 100% !important;
+        align-content: stretch !important;
+    }
+}
