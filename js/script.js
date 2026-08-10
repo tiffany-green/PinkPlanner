@@ -947,3 +947,160 @@ function makeDateKey(
         `${year}-${paddedMonth}-${paddedDay}`
     );
 }
+/* =========================================
+   LIVE WEATHER - VALENCIA CA 91355
+   ========================================= */
+
+async function updateWeather() {
+    const weatherElement =
+        document.querySelector(".weather");
+
+    if (!weatherElement) {
+        return;
+    }
+
+    try {
+        const latitude = 34.40185;
+        const longitude = -118.570014;
+
+        const weatherURL =
+            `https://api.open-meteo.com/v1/forecast` +
+            `?latitude=${latitude}` +
+            `&longitude=${longitude}` +
+            `&current=temperature_2m,weather_code` +
+            `&temperature_unit=fahrenheit` +
+            `&timezone=America%2FLos_Angeles`;
+
+        const response =
+            await fetch(weatherURL);
+
+        if (!response.ok) {
+            throw new Error(
+                `Weather request failed: ${response.status}`
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const temperature =
+            Math.round(
+                data.current.temperature_2m
+            );
+
+        const weatherCode =
+            data.current.weather_code;
+
+        const icon =
+            weatherIcon(weatherCode);
+
+        weatherElement.textContent =
+            `${icon} ${temperature}°`;
+
+        console.log(
+            "PinkPlanner weather updated:",
+            temperature,
+            weatherCode
+        );
+
+    } catch (error) {
+
+        console.error(
+            "PinkPlanner weather error:",
+            error
+        );
+
+        weatherElement.textContent =
+            "🌤️ --°";
+    }
+}
+
+
+function weatherIcon(code) {
+
+    /* Clear */
+    if (code === 0) {
+        return "☀️";
+    }
+
+    /* Mostly clear */
+    if (
+        code === 1 ||
+        code === 2
+    ) {
+        return "🌤️";
+    }
+
+    /* Cloudy */
+    if (code === 3) {
+        return "☁️";
+    }
+
+    /* Fog */
+    if (
+        code === 45 ||
+        code === 48
+    ) {
+        return "🌫️";
+    }
+
+    /* Drizzle */
+    if (
+        code >= 51 &&
+        code <= 57
+    ) {
+        return "🌦️";
+    }
+
+    /* Rain */
+    if (
+        code >= 61 &&
+        code <= 67
+    ) {
+        return "🌧️";
+    }
+
+    /* Snow */
+    if (
+        code >= 71 &&
+        code <= 77
+    ) {
+        return "❄️";
+    }
+
+    /* Rain showers */
+    if (
+        code >= 80 &&
+        code <= 82
+    ) {
+        return "🌦️";
+    }
+
+    /* Snow showers */
+    if (
+        code === 85 ||
+        code === 86
+    ) {
+        return "🌨️";
+    }
+
+    /* Thunderstorms */
+    if (
+        code >= 95
+    ) {
+        return "⛈️";
+    }
+
+    return "🌤️";
+}
+
+
+/* Load weather when PinkPlanner starts */
+updateWeather();
+
+
+/* Refresh weather every 10 minutes */
+setInterval(
+    updateWeather,
+    10 * 60 * 1000
+);
