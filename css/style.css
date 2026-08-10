@@ -859,3 +859,197 @@ body {
         object-fit: contain;
     }
 }
+/* =========================================
+   FINAL FIRE TV LAYOUT
+   Forces full calendar + sidebar on one screen
+   ========================================= */
+
+@media screen and (max-height: 800px) and (min-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .dashboard {
+        height: 100vh;
+        padding: 6px 8px;
+    }
+
+    /* KEEP SIDEBAR BESIDE CALENDAR */
+    main {
+        display: grid !important;
+        grid-template-columns:
+            minmax(0, 3.1fr)
+            minmax(230px, 1fr) !important;
+
+        gap: 10px !important;
+        margin-top: 4px !important;
+        align-items: start;
+    }
+
+    aside {
+        display: block !important;
+        min-width: 0;
+    }
+
+
+    /* ---------- TOP HEADER ---------- */
+
+    .topbar {
+        margin-bottom: 2px;
+    }
+
+    .brand-name {
+        font-size: 28px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .date-block h1 {
+        font-size: 23px;
+    }
+
+    .date-block p {
+        font-size: 12px;
+        margin-top: 0;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+
+    .google-bar {
+        margin: 1px 0 4px;
+        font-size: 9px;
+    }
+
+
+    /* ---------- CALENDAR ---------- */
+
+    .calendar-card {
+        padding: 8px 10px !important;
+    }
+
+    .calendar-title-row {
+        margin-bottom: 3px;
+    }
+
+    .calendar-title-row h2 {
+        font-size: 25px;
+    }
+
+    .month-arrow {
+        height: 28px;
+        font-size: 28px;
+    }
+
+    .weekdays {
+        margin-bottom: 3px;
+    }
+
+    .weekdays span {
+        font-size: 10px;
+    }
+
+    .weekdays,
+    .calendar {
+        gap: 4px;
+    }
+
+    .calendar > div,
+    .day-box {
+        height: 58px !important;
+        min-height: 58px !important;
+        padding: 4px !important;
+    }
+
+    .calendar .day-number {
+        font-size: 11px;
+        margin-bottom: 1px;
+    }
+
+    .calendar .calendar-event {
+        font-size: 8px;
+        padding: 2px 3px;
+        margin-top: 1px;
+        line-height: 1.05;
+    }
+
+    .more-events {
+        font-size: 7px !important;
+    }
+
+
+    /* ---------- RIGHT SIDEBAR ---------- */
+
+    .panel {
+        padding: 7px 9px !important;
+        margin-bottom: 6px !important;
+        border-radius: 12px;
+    }
+
+    .panel h3 {
+        font-size: 15px !important;
+        margin: 0 0 4px !important;
+    }
+
+    .upcoming-event {
+        font-size: 8px !important;
+        line-height: 1.05 !important;
+        margin: 2px 0 !important;
+    }
+
+    .legend-item {
+        font-size: 8px !important;
+        padding: 3px 0 !important;
+    }
+
+    .legend-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .months {
+        gap: 3px !important;
+    }
+
+    .months span {
+        font-size: 7px !important;
+        padding: 4px 1px !important;
+    }
+
+
+    /* ---------- LALA ---------- */
+
+    .lala-panel {
+        height: 105px !important;
+        min-height: 105px !important;
+
+        display: grid !important;
+        grid-template-columns: 115px 1fr !important;
+
+        gap: 6px !important;
+        padding: 3px 8px !important;
+    }
+
+    .lala-image {
+        width: 110px !important;
+        height: 100px !important;
+        object-fit: contain;
+    }
+
+    .lala-name {
+        font-size: 18px !important;
+    }
+
+    .lala-note {
+        font-size: 8px !important;
+        margin-top: 3px !important;
+    }
+}
