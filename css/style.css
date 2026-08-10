@@ -1237,3 +1237,30 @@ html.silk-tv .lala-note {
     font-size: 7.5px !important;
     margin-top: 2px !important;
 }
+/* =========================================
+   CENTER LALA TEXT
+   ========================================= */
+
+.lala-panel {
+    position: relative;
+}
+
+.lala-text {
+    flex: 1;
+    text-align: center !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+}
+
+.lala-name {
+    width: 100%;
+    text-align: center !important;
+}
+
+.lala-note {
+    width: 100%;
+    text-align: center !important;
+}
