@@ -1053,3 +1053,187 @@ body {
         margin-top: 3px !important;
     }
 }
+
+/* =========================================
+   AMAZON SILK / FIRE TV LAYOUT
+   ========================================= */
+
+html.silk-tv,
+html.silk-tv body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+html.silk-tv .dashboard {
+    height: 100vh;
+    padding: 5px 8px;
+}
+
+
+/* ---------- FORCE TWO COLUMNS ---------- */
+
+html.silk-tv main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 3.2fr) minmax(250px, 1fr) !important;
+    gap: 10px !important;
+    margin-top: 3px !important;
+    align-items: start;
+}
+
+html.silk-tv aside {
+    display: block !important;
+    min-width: 0 !important;
+}
+
+
+/* ---------- HEADER ---------- */
+
+html.silk-tv .topbar {
+    margin-bottom: 1px;
+}
+
+html.silk-tv .brand-name {
+    font-size: 27px;
+}
+
+html.silk-tv .brand-subtitle {
+    font-size: 10px;
+}
+
+html.silk-tv .date-block h1 {
+    font-size: 23px;
+}
+
+html.silk-tv .date-block p {
+    font-size: 11px;
+    margin-top: 0;
+}
+
+html.silk-tv .weather {
+    font-size: 20px;
+}
+
+html.silk-tv .google-bar {
+    margin: 1px 0 3px;
+    font-size: 9px;
+}
+
+
+/* ---------- CALENDAR ---------- */
+
+html.silk-tv .calendar-card {
+    padding: 7px 9px !important;
+}
+
+html.silk-tv .calendar-title-row {
+    margin-bottom: 2px;
+}
+
+html.silk-tv .calendar-title-row h2 {
+    font-size: 24px;
+}
+
+html.silk-tv .month-arrow {
+    height: 26px;
+    font-size: 27px;
+}
+
+html.silk-tv .weekdays {
+    margin-bottom: 2px;
+}
+
+html.silk-tv .weekdays span {
+    font-size: 10px;
+}
+
+html.silk-tv .weekdays,
+html.silk-tv .calendar {
+    gap: 3px;
+}
+
+html.silk-tv .calendar > div,
+html.silk-tv .day-box {
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 3px !important;
+}
+
+html.silk-tv .calendar .day-number {
+    font-size: 11px;
+    margin-bottom: 1px;
+}
+
+html.silk-tv .calendar .calendar-event {
+    font-size: 7px;
+    padding: 2px 3px;
+    margin-top: 1px;
+    line-height: 1.05;
+}
+
+
+/* ---------- SIDEBAR ---------- */
+
+html.silk-tv .panel {
+    padding: 6px 8px !important;
+    margin-bottom: 5px !important;
+    border-radius: 11px;
+}
+
+html.silk-tv .panel h3 {
+    font-size: 14px !important;
+    margin: 0 0 3px !important;
+}
+
+html.silk-tv .upcoming-event {
+    font-size: 7.5px !important;
+    line-height: 1.05 !important;
+    margin: 2px 0 !important;
+}
+
+html.silk-tv .legend-item {
+    font-size: 7.5px !important;
+    padding: 2px 0 !important;
+}
+
+html.silk-tv .legend-dot {
+    width: 7px;
+    height: 7px;
+}
+
+html.silk-tv .months {
+    gap: 3px !important;
+}
+
+html.silk-tv .months span {
+    font-size: 7px !important;
+    padding: 3px 1px !important;
+}
+
+
+/* ---------- LALA ---------- */
+
+html.silk-tv .lala-panel {
+    height: 95px !important;
+    min-height: 95px !important;
+    display: grid !important;
+    grid-template-columns: 105px 1fr !important;
+    gap: 5px !important;
+    padding: 3px 7px !important;
+}
+
+html.silk-tv .lala-image {
+    width: 100px !important;
+    height: 90px !important;
+    object-fit: contain;
+}
+
+html.silk-tv .lala-name {
+    font-size: 17px !important;
+}
+
+html.silk-tv .lala-note {
+    font-size: 7.5px !important;
+    margin-top: 2px !important;
+}
