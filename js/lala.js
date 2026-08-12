@@ -52,7 +52,7 @@ function updateLala() {
     }
 
     else if (weekday === 3) {
-        lalaFile = "lala-wednesday-2.0.png";
+        lalaFile = "lala-wednesday.png";
         lalaMessage = "Midweek nap break. 💤";
     }
 
