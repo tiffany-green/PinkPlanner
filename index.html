@@ -141,6 +141,31 @@
         document.documentElement.classList.add("silk-tv");
     }
 </script>
+
+         <script>
+  let wakeLock = null;
+
+  async function keepScreenAwake() {
+    try {
+      if ("wakeLock" in navigator) {
+        wakeLock = await navigator.wakeLock.request("screen");
+        console.log("PinkPlanner: Wake Lock active!");
+      } else {
+        console.log("PinkPlanner: Wake Lock not supported.");
+      }
+    } catch (err) {
+      console.log("PinkPlanner: Wake Lock error:", err);
+    }
+  }
+
+  keepScreenAwake();
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      keepScreenAwake();
+    }
+  });
+</script>   
             
 </body>
 </html>
