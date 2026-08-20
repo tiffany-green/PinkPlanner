@@ -142,18 +142,47 @@
     }
 </script>
 
-         <script>
+ <script>
   let wakeLock = null;
+
+  function showWakeStatus(message) {
+    let badge = document.getElementById("wake-status");
+
+    if (!badge) {
+      badge = document.createElement("div");
+      badge.id = "wake-status";
+
+      badge.style.position = "fixed";
+      badge.style.bottom = "10px";
+      badge.style.left = "10px";
+      badge.style.padding = "6px 10px";
+      badge.style.background = "rgba(255,255,255,0.9)";
+      badge.style.border = "1px solid #d99ab5";
+      badge.style.borderRadius = "10px";
+      badge.style.fontSize = "12px";
+      badge.style.zIndex = "9999";
+
+      document.body.appendChild(badge);
+    }
+
+    badge.textContent = message;
+  }
 
   async function keepScreenAwake() {
     try {
       if ("wakeLock" in navigator) {
         wakeLock = await navigator.wakeLock.request("screen");
-        console.log("PinkPlanner: Wake Lock active!");
+
+        showWakeStatus("☀️ Wake Lock Active");
+
+        wakeLock.addEventListener("release", () => {
+          showWakeStatus("⚠️ Wake Lock Released");
+        });
       } else {
-        console.log("PinkPlanner: Wake Lock not supported.");
+        showWakeStatus("❌ Wake Lock Not Supported");
       }
     } catch (err) {
+      showWakeStatus("⚠️ Wake Lock Error");
       console.log("PinkPlanner: Wake Lock error:", err);
     }
   }
@@ -165,7 +194,7 @@
       keepScreenAwake();
     }
   });
-</script>   
+</script> 
             
 </body>
 </html>
