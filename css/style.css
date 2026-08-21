@@ -1301,3 +1301,101 @@ html.silk-tv .lala-note {
         align-content: stretch !important;
     }
 }
+/* =========================================
+   TODAY BUTTON
+   ========================================= */
+
+#today-button {
+    border: none;
+    background: #f7d8e4;
+    color: #b66b86;
+
+    padding: 7px 13px;
+    border-radius: 10px;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+}
+
+#today-button:hover {
+    background: #f3c7d7;
+}
+
+
+/* Fire TV / Amazon Silk */
+
+html.silk-tv #today-button {
+    padding: 4px 8px;
+    font-size: 8px;
+    border-radius: 7px;
+}
+/* =========================================
+   TODAY BUTTON - FINAL LAYOUT
+   Keeps month title perfectly centered
+   ========================================= */
+
+.calendar-title-row {
+    display: grid !important;
+
+    /* Left arrow | Today button | Month | Right arrow */
+    grid-template-columns:
+        52px
+        70px
+        minmax(0, 1fr)
+        52px !important;
+
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+
+/* TODAY button */
+
+#today-button {
+    border: 1px solid #edb9cc;
+    background: #f7d8e4;
+    color: #a95473;
+
+    padding: 7px 12px;
+    border-radius: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+/* Little hover effect for computer use */
+
+#today-button:hover {
+    background: #f3c7d7;
+    border-color: #e7a8bf;
+}
+
+
+/* =========================================
+   FIRE TV / AMAZON SILK
+   ========================================= */
+
+html.silk-tv .calendar-title-row {
+    grid-template-columns:
+        30px
+        52px
+        minmax(0, 1fr)
+        30px !important;
+
+    gap: 4px !important;
+}
+
+html.silk-tv #today-button {
+    padding: 4px 6px;
+    font-size: 8px;
+    border-radius: 7px;
+}
