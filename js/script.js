@@ -27,7 +27,6 @@ window.onload = function () {
 
     loadCalendarFeed();
 
-
     // Refresh Google Calendar automatically
     // every 10 minutes.
     setInterval(
@@ -560,6 +559,45 @@ function setupMonthNavigation() {
             );
         }
     );
+
+
+
+    /* =========================================
+       TODAY BUTTON
+       ========================================= */
+
+    const todayButton =
+        document.getElementById(
+            "today-button"
+        );
+
+
+    if (todayButton) {
+
+        todayButton.addEventListener(
+            "click",
+            function () {
+
+                const today =
+                    new Date();
+
+
+                displayedYear =
+                    today.getFullYear();
+
+
+                displayedMonth =
+                    today.getMonth();
+
+
+                buildCalendar(
+                    displayedYear,
+                    displayedMonth,
+                    allCalendarEvents
+                );
+            }
+        );
+    }
 }
 
 
@@ -947,21 +985,34 @@ function makeDateKey(
         `${year}-${paddedMonth}-${paddedDay}`
     );
 }
+
+
+
 /* =========================================
    LIVE WEATHER - VALENCIA CA 91355
    ========================================= */
 
 async function updateWeather() {
+
     const weatherElement =
-        document.querySelector(".weather");
+        document.querySelector(
+            ".weather"
+        );
+
 
     if (!weatherElement) {
         return;
     }
 
+
     try {
-        const latitude = 34.40185;
-        const longitude = -118.570014;
+
+        const latitude =
+            34.40185;
+
+        const longitude =
+            -118.570014;
+
 
         const weatherURL =
             `https://api.open-meteo.com/v1/forecast` +
@@ -971,37 +1022,51 @@ async function updateWeather() {
             `&temperature_unit=fahrenheit` +
             `&timezone=America%2FLos_Angeles`;
 
+
         const response =
-            await fetch(weatherURL);
+            await fetch(
+                weatherURL
+            );
+
 
         if (!response.ok) {
+
             throw new Error(
                 `Weather request failed: ${response.status}`
             );
         }
 
+
         const data =
             await response.json();
+
 
         const temperature =
             Math.round(
                 data.current.temperature_2m
             );
 
+
         const weatherCode =
             data.current.weather_code;
 
+
         const icon =
-            weatherIcon(weatherCode);
+            weatherIcon(
+                weatherCode
+            );
+
 
         weatherElement.textContent =
             `${icon} ${temperature}°`;
+
 
         console.log(
             "PinkPlanner weather updated:",
             temperature,
             weatherCode
         );
+
 
     } catch (error) {
 
@@ -1010,10 +1075,12 @@ async function updateWeather() {
             error
         );
 
+
         weatherElement.textContent =
             "🌤️ --°";
     }
 }
+
 
 
 function weatherIcon(code) {
@@ -1023,6 +1090,7 @@ function weatherIcon(code) {
         return "☀️";
     }
 
+
     /* Mostly clear */
     if (
         code === 1 ||
@@ -1031,10 +1099,12 @@ function weatherIcon(code) {
         return "🌤️";
     }
 
+
     /* Cloudy */
     if (code === 3) {
         return "☁️";
     }
+
 
     /* Fog */
     if (
@@ -1044,6 +1114,7 @@ function weatherIcon(code) {
         return "🌫️";
     }
 
+
     /* Drizzle */
     if (
         code >= 51 &&
@@ -1051,6 +1122,7 @@ function weatherIcon(code) {
     ) {
         return "🌦️";
     }
+
 
     /* Rain */
     if (
@@ -1060,6 +1132,7 @@ function weatherIcon(code) {
         return "🌧️";
     }
 
+
     /* Snow */
     if (
         code >= 71 &&
@@ -1067,6 +1140,7 @@ function weatherIcon(code) {
     ) {
         return "❄️";
     }
+
 
     /* Rain showers */
     if (
@@ -1076,6 +1150,7 @@ function weatherIcon(code) {
         return "🌦️";
     }
 
+
     /* Snow showers */
     if (
         code === 85 ||
@@ -1084,6 +1159,7 @@ function weatherIcon(code) {
         return "🌨️";
     }
 
+
     /* Thunderstorms */
     if (
         code >= 95
@@ -1091,8 +1167,10 @@ function weatherIcon(code) {
         return "⛈️";
     }
 
+
     return "🌤️";
 }
+
 
 
 /* Load weather when PinkPlanner starts */
